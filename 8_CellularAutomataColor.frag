@@ -98,10 +98,10 @@ void main() {
 
     // FBO logic
     #if defined( BUFFER_0 )
-    if(u_time < 1.0) gl_FragColor = texture2D(u_tex0, st);
+    if(u_time < 5.0) gl_FragColor = texture2D(u_tex0, st);
     else gl_FragColor = vec4(nextR, nextG, nextB, 1.0);
     #elif defined( BUFFER_1 )
-    if(u_time < 1.0) gl_FragColor =vec4(0.0, 0.0, 0.0, 1.0);
+    if(u_time < 5.0) gl_FragColor =vec4(0.0, 0.0, 0.0, 1.0);
     else gl_FragColor = vec4(nextRVel, nextGVel, nextBVel, 1.0);
     #endif
 }
