@@ -20,8 +20,8 @@ void main() {
     vec2 cell = floor(uv / cellSize) * cellSize;
 
     // Parameters (tweak as needed)
-    float ease = 0.05;
-    float minDist = 0.2; // normalized color distance threshold
+    float ease = 0.2;
+    float minDist = 0.1; // normalized color distance threshold
     float minDistSquare = minDist * minDist;
     float sepNormMag = 0.5;
 
