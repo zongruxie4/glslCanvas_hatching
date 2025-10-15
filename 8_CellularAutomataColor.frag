@@ -86,10 +86,28 @@ void main() {
     float nextG = state.g + nextGVel;
     float nextB = state.b + nextBVel;
 
-    // Clamp color to [0,1]
-    nextR = clamp(nextR, 0.0, 1.0);
-    nextG = clamp(nextG, 0.0, 1.0);
-    nextB = clamp(nextB, 0.0, 1.0);
+    // Bounce colors off boundaries (color cube [0,1])
+    if (nextR < 0.0) {
+        nextR = 0.0;
+        nextRVel *= -1.0;
+    } else if (nextR > 1.0) {
+        nextR = 1.0;
+        nextRVel *= -1.0;
+    }
+    if (nextG < 0.0) {
+        nextG = 0.0;
+        nextGVel *= -1.0;
+    } else if (nextG > 1.0) {
+        nextG = 1.0;
+        nextGVel *= -1.0;
+    }
+    if (nextB < 0.0) {
+        nextB = 0.0;
+        nextBVel *= -1.0;
+    } else if (nextB > 1.0) {
+        nextB = 1.0;
+        nextBVel *= -1.0;
+    }
 
     // Clamp velocity (optional, not strictly needed)
     nextRVel = clamp(nextRVel, -1.0, 1.0);
