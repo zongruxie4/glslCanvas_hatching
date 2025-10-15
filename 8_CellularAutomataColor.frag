@@ -16,12 +16,12 @@ void main() {
     vec2 st = gl_FragCoord.xy / u_resolution.xy;
     vec2 uv = st;
 
-    float cellSize = 1.0 / 32.0;
+    float cellSize = 1.0 / 16.0;
     vec2 cell = floor(uv / cellSize) * cellSize;
 
     // Parameters (tweak as needed)
-    float ease = 0.05;
-    float minDist = 0.2; // normalized color distance threshold
+    float ease = 0.1;
+    float minDist = 0.1; // normalized color distance threshold
     float minDistSquare = minDist * minDist;
     float sepNormMag = 0.5;
 
