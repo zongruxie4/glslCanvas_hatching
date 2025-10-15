@@ -20,8 +20,8 @@ void main() {
     vec2 cell = floor(uv / cellSize) * cellSize;
 
     // Parameters (tweak as needed)
-    float ease = 0.2;
-    float minDist = 0.1; // normalized color distance threshold
+    float ease = 0.05;
+    float minDist = 0.2; // normalized color distance threshold
     float minDistSquare = minDist * minDist;
     float sepNormMag = 0.5;
 
@@ -100,8 +100,12 @@ void main() {
     #if defined( BUFFER_0 )
     if(u_time < 5.0) gl_FragColor = texture2D(u_tex0, st);
     else gl_FragColor = vec4(nextR, nextG, nextB, 1.0);
+
     #elif defined( BUFFER_1 )
     if(u_time < 5.0) gl_FragColor =vec4(0.0, 0.0, 0.0, 1.0);
     else gl_FragColor = vec4(nextRVel, nextGVel, nextBVel, 1.0);
+
+    #else
+    gl_FragColor = texture2D(u_buffer0, st);
     #endif
 }
